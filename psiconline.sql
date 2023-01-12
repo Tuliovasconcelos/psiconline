@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 11-Jan-2023 às 16:54
+-- Tempo de geração: 12-Jan-2023 às 11:18
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 7.4.26
 
@@ -18,31 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `gersenhas`
---
-CREATE DATABASE IF NOT EXISTS `gersenhas` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `gersenhas`;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `senhas`
---
-
-DROP TABLE IF EXISTS `senhas`;
-CREATE TABLE IF NOT EXISTS `senhas` (
-  `idSenha` int(11) NOT NULL AUTO_INCREMENT,
-  `Local` varchar(50) NOT NULL,
-  `Login` varchar(50) NOT NULL,
-  `Senha` varchar(50) NOT NULL,
-  `Data` date NOT NULL,
-  PRIMARY KEY (`idSenha`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
---
 -- Banco de dados: `psiconline`
 --
-CREATE DATABASE IF NOT EXISTS `psiconline` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `psiconline`;
 
 -- --------------------------------------------------------
 
@@ -82,7 +59,6 @@ DROP TABLE IF EXISTS `avaliacao_psicologo`;
 CREATE TABLE IF NOT EXISTS `avaliacao_psicologo` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ID_PSICOLOGO` int(11) DEFAULT NULL,
-  `ID_PACIENTE` int(11) DEFAULT NULL,
   `AVALIACAO_DS` varchar(3000) DEFAULT NULL,
   `NOME` varchar(300) NOT NULL,
   `CONTATO` varchar(25) NOT NULL,
@@ -93,11 +69,11 @@ CREATE TABLE IF NOT EXISTS `avaliacao_psicologo` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `duvidas`
+-- Estrutura da tabela `duvida`
 --
 
-DROP TABLE IF EXISTS `duvidas`;
-CREATE TABLE IF NOT EXISTS `duvidas` (
+DROP TABLE IF EXISTS `duvida`;
+CREATE TABLE IF NOT EXISTS `duvida` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DESCRICAO` varchar(3000) DEFAULT NULL,
   `RESPOSTA` varchar(3000) DEFAULT NULL,
