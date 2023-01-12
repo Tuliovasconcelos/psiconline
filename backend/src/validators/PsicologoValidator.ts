@@ -21,3 +21,48 @@ export const storePsicologoValidator = celebrate(
         abortEarly: false,
     },
 );
+
+export const storeAbordagemPsicologoValidator = celebrate(
+    {
+        [Segments.BODY]: Joi.object().keys({
+            id_psicologo: Joi.string().required(),
+            id_abordagem: Joi.string().required(),
+            ativo_sn: Joi.string().required()
+
+        }),
+    },
+    {
+        abortEarly: false,
+    },
+);
+
+
+export const storeEspecialidadePsicologoValidator = celebrate(
+    {
+        [Segments.BODY]: Joi.object().keys({
+            id_psicologo: Joi.string().required(),
+            id_especialidade: Joi.string().required(),
+            ativo_sn: Joi.string().required()
+
+        }),
+    },
+    {
+        abortEarly: false,
+    },
+);
+
+export const storeAvaliacaoPsicologoValidator = celebrate(
+    {
+        [Segments.BODY]: Joi.object().keys({
+            id_psicologo: Joi.string().required(),
+            avaliacao_ds: Joi.string().required(),
+            nome: Joi.string().required(),
+            contato: Joi.string().required(),
+            email: Joi.string().required()
+
+        }),
+    },
+    {
+        abortEarly: false,
+    },
+);
