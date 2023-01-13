@@ -59,16 +59,16 @@ export default ({
 
   const defaultSteps = [
     {
-      heading: "Register",
-      description: "Create an account with us using Google or Facebook."
+      heading: "Busque",
+      description: "Escolha a especialidade e/ou abordagem e clique em Buscar!"
     },
     {
-      heading: "Download",
-      description: "Browse and Download the template that you like from the marketplace."
+      heading: "Agende",
+      description: "Selecione o terapeuta, verifique suas avaliações e entre em contato para agendar!"
     },
     {
-      heading: "Run",
-      description: "Follow the instructions to setup and customize the template to your needs."
+      heading: "Avalie",
+      description: "Ao final do atendimento, avalie o psicólogo para contribuir com outras pessoas!"
     }
   ];
 
@@ -88,7 +88,7 @@ export default ({
             <Steps>
               {steps.map((step, index) => (
                 <Step key={index}>
-                  <StepNumber>{(index+1).toString().padStart(2,'0')}</StepNumber>
+                  <StepNumber>{(index + 1).toString().padStart(2, '0')}</StepNumber>
                   <StepText>
                     <StepHeading>{step.heading}</StepHeading>
                     <StepDescription>{step.description}</StepDescription>

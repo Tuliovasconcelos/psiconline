@@ -58,9 +58,10 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   const defaultLinks = [
     <NavLinks key={1}>
       <NavLink href="/#">Quem somos</NavLink>
-      <NavLink href="/#">Agendar</NavLink>
+      <NavLink href="/#">Como utilizar</NavLink>
       <NavLink href="/#">Psicólogos</NavLink>
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/#">Fazer parte</PrimaryLink>
+      <NavLink href="/#">Agendar</NavLink>
+      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/#">Sou psicólogo</PrimaryLink>
     </NavLinks>
   ];
 

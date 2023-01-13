@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 //eslint-disable-next-line
-import { css } from "styled-components/macro";
 
 import Header from "../headers/light.js";
-
+import { css } from "styled-components/macro";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-1.svg";
 import DesignIllustration from "../../images/design-illustration-2.svg";
-import CustomersLogoStripImage from "../../images/customers-logo-strip.png";
+import { PrimaryButton as PrimaryButtonBase } from "../misc/Buttons.js";
+
+
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row lg:items-center max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -30,6 +31,10 @@ const Actions = styled.div`
 
 const IllustrationContainer = tw.div`flex justify-center lg:justify-end items-center`;
 
+const PrimaryButton = styled(PrimaryButtonBase)(props => [
+  tw`mt-8 md:mt-8 text-sm inline-block mx-auto md:mx-0`,
+  props.buttonRounded && tw`rounded-full`
+]);
 // Random Decorator Blobs (shapes that you see in background)
 const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
   ${tw`pointer-events-none opacity-5 absolute left-0 bottom-0 h-64 w-64 transform -translate-x-2/3 -z-10`}
@@ -45,7 +50,11 @@ const CustomersLogoStrip = styled.div`
   }
 `;
 
-export default ({ roundedHeaderButton }) => {
+export default ({
+  roundedHeaderButton,
+  primaryButtonText = "Quero começar!",
+  primaryButtonUrl = "https://timerse.com",
+  buttonRounded = true, }) => {
   return (
     <>
       <Header roundedHeaderButton={roundedHeaderButton} />
@@ -53,24 +62,18 @@ export default ({ roundedHeaderButton }) => {
         <TwoColumn>
           <LeftColumn>
             <Heading>
-              Beautiful React Templates <span tw="text-primary-500">for you.</span>
+              Fácil, seguro e <span tw="text-primary-200">acessível</span>!
             </Heading>
             <Paragraph>
-              Our templates are easy to setup, understand and customize. Fully modular components with a variety of
-              pages and components.
+              O atendimento psicológico online permite que você cuide do seu bem-estar sem sair de casa !
             </Paragraph>
-            <Actions>
-              <input type="text" placeholder="Your E-mail Address" />
-              <button>Get Started</button>
-            </Actions>
-            <CustomersLogoStrip>
-              <p>Our TRUSTED Customers</p>
-              <img src={CustomersLogoStripImage} alt="Our Customers" />
-            </CustomersLogoStrip>
+            <PrimaryButton buttonRounded={buttonRounded} as="a" href={primaryButtonUrl}>
+              {primaryButtonText}
+            </PrimaryButton>
           </LeftColumn>
           <RightColumn>
             <IllustrationContainer>
-              <img tw="min-w-0 w-full max-w-lg xl:max-w-3xl" src={DesignIllustration} alt="Design Illustration" />
+              <img tw="min-w-0 w-full max-w-lg xl:max-w-2xl" src={DesignIllustration} alt="Design Illustration" />
             </IllustrationContainer>
           </RightColumn>
         </TwoColumn>

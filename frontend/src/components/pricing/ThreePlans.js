@@ -123,7 +123,7 @@ export default ({
     `,
     css`
       background: rgb(56, 178, 172);
-      background-image: linear-gradient(115deg, #6415ff, #7431ff, #8244ff, #8e56ff, #9a66ff);
+      background-image: linear-gradient(115deg, #a4f5ec, #7431ff, #8244ff, #8e56ff, #9a66ff);
     `,
     css`
       background: rgb(245, 101, 101);

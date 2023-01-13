@@ -1,6 +1,6 @@
 import React from "react";
 import tw from "twin.macro";
-import { css } from "styled-components/macro"; //eslint-disable-line
+import { css } from "styled-components/macro";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/TwoColumnWithInput.js";
 import Features from "components/features/ThreeColWithSideImage.js";
@@ -20,30 +20,30 @@ import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/dollar-sig
 
 export default () => {
   const Subheading = tw.span`uppercase tracking-widest font-bold text-primary-500`;
-  const HighlightedText = tw.span`text-primary-500`;
+  const HighlightedText = tw.span`text-primary-200`;
 
   return (
     <AnimationRevealPage>
       <Hero roundedHeaderButton={true} />
       <Features
-        subheading={<Subheading>Features</Subheading>}
+        subheading={<Subheading>Quem somos?</Subheading>}
         heading={
           <>
-            We have Amazing <HighlightedText>Service.</HighlightedText>
+            Estamos aqui para lhe <span tw="text-primary-200">acolher</span>!
           </>
         }
       />
       <MainFeature
-        subheading={<Subheading>Quality Work</Subheading>}
+        subheading={<Subheading>Psicólogos</Subheading>}
         imageSrc={heroScreenshotImageSrc}
         imageBorder={true}
         imageDecoratorBlob={true}
       />
       <FeatureWithSteps
-        subheading={<Subheading>STEPS</Subheading>}
+        subheading={<Subheading>Como utilizar?</Subheading>}
         heading={
           <>
-            Easy to <HighlightedText>Get Started.</HighlightedText>
+            É muito  <HighlightedText>fácil</HighlightedText>.
           </>
         }
         textOnLeft={false}
@@ -177,7 +177,7 @@ export default () => {
           }
         ]}
       />
-      <GetStarted/>
+      <GetStarted />
       <Footer />
     </AnimationRevealPage>
   );

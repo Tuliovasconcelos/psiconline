@@ -29,7 +29,7 @@ export default () => {
         subheading={<Subheading>Features</Subheading>}
         heading={
           <>
-            We have Amazing <HighlightedText>Service.</HighlightedText>
+            We have Amazing <span tw="text-primary-200">Acessíveis</span>
           </>
         }
       />
@@ -177,7 +177,7 @@ export default () => {
           }
         ]}
       />
-      <GetStarted/>
+      <GetStarted />
       <Footer />
     </AnimationRevealPage>
   );
