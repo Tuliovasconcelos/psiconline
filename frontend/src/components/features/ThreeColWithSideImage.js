@@ -72,7 +72,7 @@ export default ({ cards = null, heading = "Amazing Features", subheading = "Feat
     },
     {
       imageSrc: DepressaoImage, title: "Depressão",
-      description: "Esta entre 9,3% e 10%."
+      description: "Está entre 9,3% e 10%."
     },
     {
       imageSrc: EstresseImage, title: "Estresse",
