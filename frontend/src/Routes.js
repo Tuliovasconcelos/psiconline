@@ -13,8 +13,8 @@ export default function RoutesApp() {
       <GlobalStyles />
       <Router>
         <Routes>
-          <Route path="/cadastroPsicologo" element={<CadastroPsicologo />} />
           <Route path="/" element={<Main />} />
+          <Route path="/cadastroPsicologo" element={<CadastroPsicologo />} />
         </Routes>
       </Router>
     </>
