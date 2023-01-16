@@ -34,9 +34,9 @@ const Textarea = styled(Input).attrs({ as: "textarea" })`
 const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 
 export default ({
-  subheading = "Contact Us",
-  heading = <>Feel free to <span tw="text-primary-500">get in touch</span><wbr /> with us.</>,
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  subheading = "Junte-se a nós!",
+  heading = <>Venha fazer parte da <span tw="text-primary-200">equipe</span><wbr />!</>,
+  description = "Preencha o formulário abaixo e aguarde a aprovação do seu cadastro.",
   submitButtonText = "Send",
   formAction = "#",
   formMethod = "get",
