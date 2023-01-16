@@ -29,7 +29,7 @@ export default () => {
         subheading={<Subheading>Quem somos?</Subheading>}
         heading={
           <>
-            Estamos aqui para lhe <span tw="text-primary-200">acolher</span>!
+            Estamos aqui para te <span tw="text-primary-200">acolher</span>!
           </>
         }
       />
@@ -51,63 +51,35 @@ export default () => {
         imageDecoratorBlob={true}
         decoratorBlobCss={tw`xl:w-40 xl:h-40 opacity-15 -translate-x-1/2 left-1/2`}
       />
-      <MainFeature2
-        subheading={<Subheading>VALUES</Subheading>}
-        heading={
-          <>
-            We Always Abide by Our <HighlightedText>Principles.</HighlightedText>
-          </>
-        }
-        imageSrc={prototypeIllustrationImageSrc}
-        showDecoratorBlob={false}
-        features={[
-          {
-            Icon: MoneyIcon,
-            title: "Affordable",
-            description: "We promise to offer you the best rate we can - at par with the industry standard.",
-            iconContainerCss: tw`bg-green-300 text-green-800`
-          },
-          {
-            Icon: BriefcaseIcon,
-            title: "Professionalism",
-            description: "We assure you that our templates are designed and created by professional designers.",
-            iconContainerCss: tw`bg-red-300 text-red-800`
-          }
-        ]}
-      />
       <Pricing
-        subheading={<Subheading>Pricing</Subheading>}
+        subheading={<Subheading>Valores</Subheading>}
         heading={
           <>
-            Reasonable & Flexible <HighlightedText>Plans.</HighlightedText>
+            Flexíveis de acordo com sua <HighlightedText>necessidade</HighlightedText>.
           </>
         }
         plans={[
           {
-            name: "Personal",
-            price: "$17.99",
-            duration: "Monthly",
-            mainFeature: "For Individuals",
-            features: ["30 Templates", "7 Landing Pages", "12 Internal Pages", "Basic Assistance"]
+            name: "Sessão simples",
+            price: "R$50,00",
+            duration: "30 min",
+            mainFeature: "Individual"
           },
           {
-            name: "Business",
-            price: "$37.99",
-            duration: "Monthly",
-            mainFeature: "For Small Businesses",
-            features: ["60 Templates", "15 Landing Pages", "22 Internal Pages", "Priority Assistance"],
-            featured: true
+            name: "Sessão extendida ",
+            price: "R$70,00",
+            duration: "40 min",
+            mainFeature: "Individual"
           },
           {
-            name: "Enterprise",
-            price: "$57.99",
-            duration: "Monthly",
-            mainFeature: "For Large Companies",
-            features: ["90 Templates", "27 Landing Pages", "37 Internal Pages", "Personal Assistance"]
+            name: "Sessão integral ",
+            price: "R$90,00",
+            duration: "60 min",
+            mainFeature: "Individual"
           }
         ]}
       />
-      <Testimonial
+      {/* <Testimonial
         subheading={<Subheading>Testimonials</Subheading>}
         heading={
           <>
@@ -136,17 +108,18 @@ export default () => {
             customerTitle: "Founder, EventsNYC"
           }
         ]}
-      />
+      /> */}
       <FAQ
-        subheading={<Subheading>FAQS</Subheading>}
+        subheading={<Subheading>DÚVIDAS</Subheading>}
         heading={
           <>
-            You have <HighlightedText>Questions ?</HighlightedText>
+            Você possui alguma <HighlightedText>Dúvida?</HighlightedText>
           </>
         }
+        description=""
         faqs={[
           {
-            question: "Are all the templates easily customizable ?",
+            question: "Are all the templates easily customizaDesigned & Developed by Professionals.ble ?",
             answer:
               "Yes, they all are. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           },
@@ -177,7 +150,6 @@ export default () => {
           }
         ]}
       />
-      <GetStarted />
       <Footer />
     </AnimationRevealPage>
   );

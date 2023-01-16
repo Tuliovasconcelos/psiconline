@@ -87,34 +87,8 @@ export default ({
   heading = "Flexible Plans.",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   plans = null,
-  primaryButtonText = "Buy Now"
+  primaryButtonText = "Agendar"
 }) => {
-  const defaultPlans = [
-    {
-      name: "Personal",
-      price: "$17.99",
-      duration: "Monthly",
-      mainFeature: "Suited for Personal Blogs",
-      features: ["30 Templates", "7 Landing Pages", "12 Internal Pages", "Basic Assistance"],
-    },
-    {
-      name: "Business",
-      price: "$37.99",
-      duration: "Monthly",
-      mainFeature: "Suited for Production Websites",
-      features: ["60 Templates", "8 Landing Pages", "22 Internal Pages", "Priority Assistance"],
-      featured: true,
-    },
-    {
-      name: "Enterprise",
-      price: "$57.99",
-      duration: "Monthly",
-      mainFeature: "Suited for Big Companies",
-      features: ["90 Templates", "9 Landing Pages", "37 Internal Pages", "Personal Assistance"],
-    },
-  ];
-
-  if (!plans) plans = defaultPlans;
 
   const highlightGradientsCss = [
     css`
@@ -150,18 +124,13 @@ export default ({
               </PlanHeader>
               <PlanFeatures>
                 <span className="feature mainFeature">{plan.mainFeature}</span>
-                {plan.features.map((feature, index) => (
-                  <span key={index} className="feature">
-                    {feature}
-                  </span>
-                ))}
               </PlanFeatures>
               <PlanAction>
                 <BuyNowButton css={!plan.featured && highlightGradientsCss[index]}>{primaryButtonText}</BuyNowButton>
               </PlanAction>
             </Plan>
           ))}
-          <DecoratorBlob/>
+          <DecoratorBlob />
         </PlansContainer>
       </ContentWithPaddingXl>
     </Container>
