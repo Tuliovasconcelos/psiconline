@@ -40,7 +40,7 @@ const StepHeading = tw.h6`leading-none text-xl font-semibold`;
 const StepDescription = tw.p`mt-3 max-w-xs leading-loose text-sm text-gray-600 font-medium`;
 
 export default ({
-  subheading = "Our Expertise",
+  subheading = "",
   heading = (
     <>
       Designed & Developed by <span tw="text-primary-500">Professionals.</span>

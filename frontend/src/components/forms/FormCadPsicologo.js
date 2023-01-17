@@ -35,9 +35,9 @@ const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 
 export default ({
   subheading = "Junte-se a nós!",
-  heading = <>Venha fazer parte da <span tw="text-primary-200">equipe</span><wbr />!</>,
+  heading = <>Venha compor a <span tw="text-primary-200">equipe</span><wbr />!</>,
   description = "Preencha o formulário abaixo e aguarde a aprovação do seu cadastro.",
-  submitButtonText = "Send",
+  submitButtonText = "Enviar",
   formAction = "#",
   formMethod = "get",
   textOnLeft = true,
@@ -58,9 +58,12 @@ export default ({
             <Form action={formAction} method={formMethod}>
               <Input type="email" name="email" placeholder="Your Email Address" />
               <Input type="text" name="name" placeholder="Full Name" />
+              <Input type="text" name="name" placeholder="Full Name" />
+              <Input type="text" name="name" placeholder="Full Name" />
+              <Input type="text" name="name" placeholder="Full Name" />
               <Input type="text" name="subject" placeholder="Subject" />
               <Textarea name="message" placeholder="Your Message Here" />
-              <SubmitButton type="submit">{submitButtonText}</SubmitButton>
+              <SubmitButton css={tw`rounded-full`} type="submit">{submitButtonText}</SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>

@@ -52,22 +52,23 @@ export default () => {
             Flexíveis de acordo com sua <HighlightedText>necessidade</HighlightedText>.
           </>
         }
+        description={"Os valores abaixo são fixos, o tempo poderá ser negociado com o profissional."}
         plans={[
           {
             name: "Sessão simples",
-            price: "R$50,00",
+            price: "R$40,00",
             duration: "30 min",
             mainFeature: "Individual"
           },
           {
             name: "Sessão extendida ",
-            price: "R$70,00",
+            price: "R$50,00",
             duration: "40 min",
             mainFeature: "Individual"
           },
           {
             name: "Sessão integral ",
-            price: "R$90,00",
+            price: "R$60,00",
             duration: "60 min",
             mainFeature: "Individual"
           }

@@ -189,7 +189,6 @@ export const components = {
     }
   },
 
-
   Hero: {
     type: "Hero Section",
     elements: {
@@ -489,7 +488,7 @@ export default () => {
 
   try {
     let Component = null;
-    if (type === "blocks" && subtype) {
+    if (subtype) {
       Component = components[type][subtype]["elements"][name].component
       return <AnimationRevealPage disabled>
         <Component />
