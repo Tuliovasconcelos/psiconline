@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
+import { PrimarySelect } from "components/misc/Select";
 import EmailIllustrationSrc from "images/email-illustration.svg";
+
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -27,11 +29,16 @@ const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:t
 
 const Form = tw.form`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
 const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
-const Textarea = styled(Input).attrs({ as: "textarea" })`
-  ${tw`h-24`}
-`
 
 const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
+
+const valueInputEspecialidade = [
+
+]
+
+const valueInputAbordagem = [
+
+]
 
 export default ({
   subheading = "Junte-se a nós!",
@@ -56,14 +63,12 @@ export default ({
             <Heading>{heading}</Heading>
             {description && <Description>{description}</Description>}
             <Form action={formAction} method={formMethod}>
-              <Input type="email" name="email" placeholder="Your Email Address" />
-              <Input type="text" name="name" placeholder="Full Name" />
-              <Input type="text" name="name" placeholder="Full Name" />
-              <Input type="text" name="name" placeholder="Full Name" />
-              <Input type="text" name="name" placeholder="Full Name" />
-              <Input type="text" name="subject" placeholder="Subject" />
-              <Textarea name="message" placeholder="Your Message Here" />
-              <SubmitButton css={tw`rounded-full`} type="submit">{submitButtonText}</SubmitButton>
+              <Input type="email" name="name" placeholder="Nome Completo*" />
+              <Input type="email" name="email" placeholder="E-mail*" />
+              <Input type="text" name="telefone" placeholder="Telefone*" />
+              <Input type="text" name="crp" placeholder="CRP*" />
+              <PrimarySelect options={valueInputAbordagem} />
+              <PrimarySelect options={valueInputAbordagem} />
             </Form>
           </TextContent>
         </TextColumn>
