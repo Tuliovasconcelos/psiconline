@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -6,6 +6,7 @@ import { SectionHeading, Subheading as SubheadingBase } from "components/misc/He
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { PrimarySelect } from "components/misc/Select";
 import EmailIllustrationSrc from "images/email-illustration.svg";
+import { Especialidades, Abordagens } from "services/get";
 
 
 const Container = tw.div`relative`;
@@ -32,14 +33,6 @@ const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-m
 
 const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
 
-const valueInputEspecialidade = [
-
-]
-
-const valueInputAbordagem = [
-
-]
-
 export default ({
   subheading = "Junte-se a nós!",
   heading = <>Venha compor a <span tw="text-primary-200">equipe</span><wbr />!</>,
@@ -50,6 +43,14 @@ export default ({
   textOnLeft = true,
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
+  const [especialidades, setEspecialidades] = useState([]);
+  const [abordagens, setAbordagens] = useState([]);
+
+
+  useEffect(() => {
+    setAbordagens(Abordagens);
+    setEspecialidades(Especialidades);
+  });
 
   return (
     <Container>
@@ -67,8 +68,8 @@ export default ({
               <Input type="email" name="email" placeholder="E-mail*" />
               <Input type="text" name="telefone" placeholder="Telefone*" />
               <Input type="text" name="crp" placeholder="CRP*" />
-              <PrimarySelect options={valueInputAbordagem} />
-              <PrimarySelect options={valueInputAbordagem} />
+              <PrimarySelect options={especialidades} />
+              <PrimarySelect options={abordagens} />
             </Form>
           </TextContent>
         </TextColumn>
