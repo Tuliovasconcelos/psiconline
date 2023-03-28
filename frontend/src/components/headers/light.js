@@ -59,7 +59,6 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
     <NavLinks key={1}>
       <NavLink href="/#">Quem somos</NavLink>
       <NavLink href="/#">Como utilizar</NavLink>
-      <NavLink href="/#">Psicólogos</NavLink>
       <NavLink href="/#">Agendar</NavLink>
       <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/cadastroPsicologo">Quero atender</PrimaryLink>
     </NavLinks>

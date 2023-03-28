@@ -7,7 +7,7 @@ const connection = knex({
     port: 3306,
     user: 'root',
     password: '',
-    database: 'losango'
+    database: 'psiconline'
   },
   useNullAsDefault: true,
 });

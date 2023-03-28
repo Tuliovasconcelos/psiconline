@@ -3,10 +3,9 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { PrimarySelect } from "components/misc/Select";
 import EmailIllustrationSrc from "images/email-illustration.svg";
-import { Especialidades, Abordagens } from "services/get";
+import api from "services/api";
 
 
 const Container = tw.div`relative`;
@@ -31,8 +30,6 @@ const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:t
 const Form = tw.form`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`
 const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`
 
-const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`
-
 export default ({
   subheading = "Junte-se a nós!",
   heading = <>Venha compor a <span tw="text-primary-200">equipe</span><wbr />!</>,
@@ -46,11 +43,68 @@ export default ({
   const [especialidades, setEspecialidades] = useState([]);
   const [abordagens, setAbordagens] = useState([]);
 
+  const [selectedAbordagem, setSelectedAbordagem] = useState(0);
+  const [selectedEspecialidade, setSelectedEspecialidade] = useState(0);
+  const [isHandle, setIsHandle] = useState(true);
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [crp, setCrp] = useState('');
 
   useEffect(() => {
-    setAbordagens(Abordagens);
-    setEspecialidades(Especialidades);
-  });
+    if (isHandle) {
+      Abordagens();
+      Especialidades();
+      setIsHandle(false);
+    }
+  }, isHandle);
+
+  async function Abordagens() {
+
+    await api.get('/Abordagem')
+      .then(function (response) {
+
+        setAbordagens(response.data);
+
+      })
+      .catch(function (error) {
+
+        console.log(error);
+      })
+
+  }
+
+  async function Especialidades() {
+
+    await api.get('/Especialidade')
+      .then(function (response) {
+        setEspecialidades(response.data);
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+
+  }
+
+  async function sendForm() {
+
+    await api.post('/Especialidade', {
+      "name": name,
+      "email": email,
+      "telefone": telefone,
+      "crp": crp
+    })
+      .then(function (response) {
+        setEspecialidades(response.data);
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+
+  }
 
   return (
     <Container>
@@ -64,12 +118,58 @@ export default ({
             <Heading>{heading}</Heading>
             {description && <Description>{description}</Description>}
             <Form action={formAction} method={formMethod}>
-              <Input type="email" name="name" placeholder="Nome Completo*" />
-              <Input type="email" name="email" placeholder="E-mail*" />
-              <Input type="text" name="telefone" placeholder="Telefone*" />
-              <Input type="text" name="crp" placeholder="CRP*" />
-              <PrimarySelect options={especialidades} />
-              <PrimarySelect options={abordagens} />
+              <Input
+                value={name}
+                type="text"
+                name="name"
+                placeholder="Nome Completo*"
+                onChange={e => setName(e.target.value)}
+              />
+              <Input
+                value={email}
+                type="email"
+                name="email"
+                placeholder="E-mail*"
+                onChange={e => setEmail(e.target.value)}
+              />
+              <Input
+                value={telefone}
+                type="text"
+                name="telefone"
+                placeholder="Telefone*"
+                onChange={e => setTelefone(e.target.value)}
+              />
+              <Input
+                value={crp}
+                type="text"
+                name="crp"
+                placeholder="CRP*"
+                onChange={e => setCrp(e.target.value)}
+              />
+              <PrimarySelect
+                value={selectedAbordagem}
+                onChange={abordagem => setSelectedAbordagem(abordagem.target.value)}
+              >
+                {abordagens.map((abordagemMap) =>
+                  <option
+                    key={abordagemMap.id}
+                    value={abordagemMap.id}>
+                    {abordagemMap.descricao}
+                  </option>)
+                }
+              </PrimarySelect>
+              <PrimarySelect
+                value={selectedEspecialidade}
+                onChange={especialidade => setSelectedEspecialidade(especialidade.target.value)
+                } >
+                {especialidades.map((especialidadeMap) =>
+                  <option
+                    key={especialidadeMap.id}
+                    value={especialidadeMap.id}>
+                    {especialidadeMap.descricao}
+                  </option>)
+                }
+              </PrimarySelect>
             </Form>
           </TextContent>
         </TextColumn>

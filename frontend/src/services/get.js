@@ -1,18 +1,40 @@
-import axios from "axios";
+import api from "./api";
 
-export function Especialidades() {
-    async () => await axios.get('/Especialidade').then((response) => {
-        return response.data;
-    }).catch(err => {
-        return err;
-    });
+export async function Especialidades() {
+
+    let especialidades = [];
+
+    await api.get('/Especialidade')
+        .then(function (response) {
+            especialidades = response.data;
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+
+    return especialidades;
+
+
 }
 
-export function Abordagens() {
-    async () => await axios.get('/Abordagem').then((response) => {
-        return response.data;
-    }).catch(err => {
-        return err;
-    });
+
+export async function Abordagens() {
+
+    let abordagens = [];
+
+    await api.get('/Abordagem')
+        .then(function (response) {
+
+            abordagens = response.data;
+
+        })
+        .catch(function (error) {
+
+            console.log(error);
+        })
+
+    return abordagens;
+
 }
 
