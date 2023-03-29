@@ -4,7 +4,7 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Footer from "components/footers/FiveColumnWithBackground.js";
 import Header from 'components/headers/light';
 import ThreeColContactDetails from "components/cards/ThreeColContactDetails";
-import check from "images/check-illustration.svg";
+import check from "images/error-illustration.png";
 
 const Image = tw.img`h-24 mx-auto`;
 

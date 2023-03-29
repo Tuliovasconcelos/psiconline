@@ -37,12 +37,14 @@ class PsicologoController {
   async create(request: Request, response: Response) {
     try {
 
+
       let aprovado_sn = 'N';
-      let valor_consulta = '';
+      let valor_consulta = 0;
       let topicos = '';
       let publico = '';
       let sobre = '';
       let caminho_foto = '';
+
       //pegando todos os dados da rota
       const {
         nome,

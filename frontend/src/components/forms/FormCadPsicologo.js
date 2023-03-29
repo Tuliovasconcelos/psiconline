@@ -5,6 +5,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import EmailIllustrationSrc from "images/email-illustration.svg";
 import api from "services/api";
+import { ReactComponent as SvgDecoratorBlob3 } from "images/svg-decorator-blob-3.svg";
 
 const SubmitButton = styled.button`
   ${tw`mt-5 tracking-wide font-semibold text-primary-500 w-full py-4 rounded-lg hover:bg-primary-900 hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
@@ -30,7 +31,9 @@ const Image = styled.div(props => [
   tw`rounded bg-contain bg-no-repeat bg-center h-full`,
 ]);
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
-
+const DecoratorBlob = styled(SvgDecoratorBlob3)`
+  ${tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}
+`;
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Heading = tw(SectionHeading)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
 const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`
@@ -65,15 +68,19 @@ export default ({
     if (errorCad) {
       window.location.href = '/cadError'
     }
-  }, cadSuccess, errorCad);
+  }, [cadSuccess, errorCad]);
 
 
   async function sendForm() {
 
+
+    console.log([name, email, telefone, crp])
+
     await api.post('/Psicologo/cadastrar', {
-      "name": name,
+      "nome": name,
       "email": email,
-      "contato": telefone,
+      "contato": telefone.replace(/[^0-9]+/g, ''),
+      "senha": crp,
       "crp": crp
     })
       .then(function () {
@@ -137,6 +144,7 @@ export default ({
           </TextContent>
         </TextColumn>
       </TwoColumn>
+      <DecoratorBlob />
     </Container>
   );
 };

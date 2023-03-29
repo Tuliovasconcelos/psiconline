@@ -6,7 +6,7 @@ export const storePsicologoValidator = celebrate(
             nome: Joi.string().required(),
             email: Joi.string().required(),
             contato: Joi.string().required().length(11),
-            senha: Joi.string(),
+            senha: Joi.string().required(),
             crp: Joi.string().required(),
             aprovado_sn: Joi.string(),
             valor_consulta: Joi.number(),

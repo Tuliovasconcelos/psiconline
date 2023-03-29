@@ -65,7 +65,7 @@ export default (
    */
 
   const defaultCards = [
-    
+
   ];
 
   if (!cards) cards = defaultCards;
@@ -91,6 +91,7 @@ export default (
         ))}
       </ThreeColumnContainer>
       <DecoratorBlob />
+
     </Container>
   );
 };
