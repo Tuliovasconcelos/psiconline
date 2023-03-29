@@ -65,18 +65,7 @@ export default (
    */
 
   const defaultCards = [
-    {
-      title: "Teste",
-      description: "Teste"
-    },
-    {
-      title: "Teste",
-      description: "Teste"
-    },
-    {
-      title: "Teste",
-      description: "Teste"
-    },
+    
   ];
 
   if (!cards) cards = defaultCards;

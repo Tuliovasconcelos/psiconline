@@ -3,10 +3,18 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { PrimarySelect } from "components/misc/Select";
 import EmailIllustrationSrc from "images/email-illustration.svg";
 import api from "services/api";
 
+const SubmitButton = styled.button`
+  ${tw`mt-5 tracking-wide font-semibold text-primary-500 w-full py-4 rounded-lg hover:bg-primary-900 hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
+  .icon {
+    ${tw`w-6 h-6 -ml-2`}
+  }
+  .text {
+    ${tw`ml-3`}
+  }
+`;
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -34,74 +42,46 @@ export default ({
   subheading = "Junte-se a nós!",
   heading = <>Venha compor a <span tw="text-primary-200">equipe</span><wbr />!</>,
   description = "Preencha o formulário abaixo e aguarde a aprovação do seu cadastro.",
-  submitButtonText = "Enviar",
   formAction = "#",
   formMethod = "get",
   textOnLeft = true,
+  submitButtonText = "Solicitar"
 }) => {
-  // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-  const [especialidades, setEspecialidades] = useState([]);
-  const [abordagens, setAbordagens] = useState([]);
-
-  const [selectedAbordagem, setSelectedAbordagem] = useState(0);
-  const [selectedEspecialidade, setSelectedEspecialidade] = useState(0);
-  const [isHandle, setIsHandle] = useState(true);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
   const [crp, setCrp] = useState('');
 
+  const [cadSuccess, setcadSuccess] = useState(false);
+  const [errorCad, setErrorCad] = useState(false);
+
+
   useEffect(() => {
-    if (isHandle) {
-      Abordagens();
-      Especialidades();
-      setIsHandle(false);
+    if (cadSuccess) {
+      window.location.href = '/cadSuccess'
     }
-  }, isHandle);
 
-  async function Abordagens() {
+    if (errorCad) {
+      window.location.href = '/cadError'
+    }
+  }, cadSuccess, errorCad);
 
-    await api.get('/Abordagem')
-      .then(function (response) {
-
-        setAbordagens(response.data);
-
-      })
-      .catch(function (error) {
-
-        console.log(error);
-      })
-
-  }
-
-  async function Especialidades() {
-
-    await api.get('/Especialidade')
-      .then(function (response) {
-        setEspecialidades(response.data);
-
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-
-  }
 
   async function sendForm() {
 
-    await api.post('/Especialidade', {
+    await api.post('/Psicologo/cadastrar', {
       "name": name,
       "email": email,
-      "telefone": telefone,
+      "contato": telefone,
       "crp": crp
     })
-      .then(function (response) {
-        setEspecialidades(response.data);
+      .then(function () {
+        setcadSuccess(true);
 
       })
       .catch(function (error) {
-        console.log(error);
+        setErrorCad(true);
       })
 
   }
@@ -117,11 +97,12 @@ export default ({
             {subheading && <Subheading>{subheading}</Subheading>}
             <Heading>{heading}</Heading>
             {description && <Description>{description}</Description>}
-            <Form action={formAction} method={formMethod}>
+            <Form onSubmit={sendForm} method={formMethod}>
               <Input
                 value={name}
                 type="text"
                 name="name"
+                required={true}
                 placeholder="Nome Completo*"
                 onChange={e => setName(e.target.value)}
               />
@@ -129,6 +110,7 @@ export default ({
                 value={email}
                 type="email"
                 name="email"
+                required={true}
                 placeholder="E-mail*"
                 onChange={e => setEmail(e.target.value)}
               />
@@ -136,6 +118,7 @@ export default ({
                 value={telefone}
                 type="text"
                 name="telefone"
+                required={true}
                 placeholder="Telefone*"
                 onChange={e => setTelefone(e.target.value)}
               />
@@ -143,33 +126,13 @@ export default ({
                 value={crp}
                 type="text"
                 name="crp"
+                required={true}
                 placeholder="CRP*"
                 onChange={e => setCrp(e.target.value)}
               />
-              <PrimarySelect
-                value={selectedAbordagem}
-                onChange={abordagem => setSelectedAbordagem(abordagem.target.value)}
-              >
-                {abordagens.map((abordagemMap) =>
-                  <option
-                    key={abordagemMap.id}
-                    value={abordagemMap.id}>
-                    {abordagemMap.descricao}
-                  </option>)
-                }
-              </PrimarySelect>
-              <PrimarySelect
-                value={selectedEspecialidade}
-                onChange={especialidade => setSelectedEspecialidade(especialidade.target.value)
-                } >
-                {especialidades.map((especialidadeMap) =>
-                  <option
-                    key={especialidadeMap.id}
-                    value={especialidadeMap.id}>
-                    {especialidadeMap.descricao}
-                  </option>)
-                }
-              </PrimarySelect>
+              <SubmitButton type="submit">
+                <span className="text">{submitButtonText}</span>
+              </SubmitButton>
             </Form>
           </TextContent>
         </TextColumn>

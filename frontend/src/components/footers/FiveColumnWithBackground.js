@@ -40,10 +40,9 @@ export default () => {
           </LogoContainer>
           <LinksContainer>
             <Link href="#">Início</Link>
-            <Link href="#">Quem somos</Link>
-            <Link href="#">Como utilizar</Link>
-            <Link href="#">Psicólogos</Link>
             <Link href="#">Agendar</Link>
+            <Link href="#">Portal Psic</Link>
+            <Link href="#">Quero atender</Link>
           </LinksContainer>
           <SocialLinksContainer>
             <SocialLink href="https://facebook.com">

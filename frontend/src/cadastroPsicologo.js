@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Footer from "components/footers/FiveColumnWithBackground.js";
 import FormCadPsicologo from "components/forms/FormCadPsicologo";
-
 import Header from 'components/headers/light';
 import ThreeColContactDetails from "components/cards/ThreeColContactDetails";
 import macHeroScreenshotImageSrc from "images/hero-screenshot-2.png";
 import FeatureWithSteps from "components/features/TwoColWithSteps.js";
-import { Subheading as SubheadingBase } from "components/misc/Headings.js";
-const Subheading = tw(SubheadingBase)`text-center md:text-left`;
-
 
 export default ({
-  roundedHeaderButton,
+  roundedHeaderButton
 }) => {
 
   const cards = [
