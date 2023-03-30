@@ -37,12 +37,12 @@ const CustomerCompany = tw.p`mt-1 text-sm text-gray-500`
 
 
 export default ({
-  heading = "Better, Faster and Cheaper Cloud.",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-  imageSrc = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+  heading = "Pesquise o seu psicólogo.",
+  description = "Utilize os filtros disponíveis para achar o profissional que você se identifique!",
+  imageSrc = "https://img.freepik.com/fotos-gratis/psicologo-de-tiro-completo-em-seu-escritorio_23-2150229974.jpg?w=360&t=st=1680208298~exp=1680208898~hmac=aa1cc68df8cbf6cbff8f38c331f6b8d62bc33a9759e6efdae12b9846a53d188e",
   imageDecoratorBlob = true,
   primaryButtonUrl = "https://google.com",
-  primaryButtonText = "Get Started",
+  primaryButtonText = "Pesquisar",
   buttonRounded = true,
   features = ["Available in 7 Locations", "Premium Internet Backbone", "99.99% Uptime SLA"],
   testimonial = {
@@ -52,26 +52,8 @@ export default ({
   }
 }) => {
   const buttonRoundedCss = buttonRounded && tw`rounded-full`;
-  const navLinks = [
-    <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
-      <NavLink href="/#">Testimonials</NavLink>
-    </NavLinks>,
-    <NavLinks key={2}>
-      <NavLink href="/#" tw="lg:ml-12!">
-        Login
-      </NavLink>
-      <PrimaryLink css={buttonRoundedCss} href="/#">
-        Sign Up
-      </PrimaryLink>
-    </NavLinks>
-  ];
   return (
     <>
-      <Header links={navLinks} />
       <Container>
         <ContentWithVerticalPadding>
           <Row>
@@ -81,25 +63,11 @@ export default ({
               <PrimaryButton as="a" href={primaryButtonUrl} css={buttonRoundedCss}>
                 {primaryButtonText}
               </PrimaryButton>
-              <FeatureList>
-                {features.map((feature, index) => (
-                  <Feature key={index}>
-                    <FeatureIcon />
-                    <FeatureText>{feature}</FeatureText>
-                  </Feature>
-                ))}
-              </FeatureList>
             </TextColumn>
             <ImageColumn>
               <ImageContainer>
                 <Image src={imageSrc} />
                 {imageDecoratorBlob && <ImageDecoratorBlob />}
-                <Testimonial>
-                  <QuotesLeftIcon/>
-                  <Quote>{testimonial.quote}</Quote>
-                  <CustomerName>{testimonial.customerName}</CustomerName>
-                  <CustomerCompany>{testimonial.customerCompany}</CustomerCompany>
-                </Testimonial>
               </ImageContainer>
               <Offsetbackground />
             </ImageColumn>

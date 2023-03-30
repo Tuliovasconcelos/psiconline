@@ -18,7 +18,7 @@ import RestaurantLandingPageImageSrc from "images/demo/RestaurantLandingPage.jpe
 import ServiceLandingPageImageSrc from "images/demo/ServiceLandingPage.jpeg";
 import HostingCloudLandingPageImageSrc from "images/demo/HostingCloudLandingPage.jpeg";
 
-import cadastroPsicologo from 'cadastroPsicologo.js';
+import cadastroPsicologo from 'CadastroPsicologo.js';
 
 
 import LoginPage from "pages/Login.js";
