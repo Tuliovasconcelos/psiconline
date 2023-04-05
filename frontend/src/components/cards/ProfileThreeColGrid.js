@@ -3,16 +3,13 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings";
-import {SectionDescription} from "components/misc/Typography";
-import { ReactComponent as TwitterIcon} from "images/twitter-icon.svg";
-import { ReactComponent as LinkedinIcon} from "images/linkedin-icon.svg";
+import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
+import { ReactComponent as LinkedinIcon } from "images/linkedin-icon.svg";
 import { ReactComponent as GithubIcon } from "images/github-icon.svg";
+import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 
-const HeadingContainer = tw.div``
-const Heading = tw(SectionHeading)``
-const Subheading = tw(SubheadingBase)`text-center mb-3`
-const Description = tw(SectionDescription)`mx-auto text-center`
+const PrimaryButton = tw(PrimaryButtonBase)`mt-8 inline-block w-56 tracking-wide text-center py-3`;
+
 
 const Cards = tw.div`flex flex-wrap flex-row justify-center sm:max-w-2xl lg:max-w-5xl mx-auto`
 const Card = tw.div`mt-24 w-full sm:w-1/2 lg:w-1/3 flex flex-col items-center`
@@ -24,6 +21,9 @@ const CardContent = styled.div`
   ${tw`flex flex-col items-center mt-6`}
   .position {
     ${tw`uppercase font-bold tracking-widest text-xs text-primary-500`}
+  }
+  .publico{
+    ${tw` font-bold tracking-widest text-xs text-primary-500`}
   }
   .name {
     ${tw`mt-1 text-xl font-medium text-gray-900`}
@@ -41,14 +41,15 @@ const CardLinks = styled.div`
 `
 
 export default ({
-  heading = "Meet These Fine Folks.",
-  subheading = "Our Team",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  primaryButtonUrl = "/perfilPsico",
+  primaryButtonText = "Ver perfil",
+  buttonRounded = true,
   cards = [
     {
       imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Founder",
-      name: "Adam Cuppy",
+      position: "Psicanálise",
+      publico: "Adultos e idosos",
+      name: "Túlio Vasconcelos",
       links: [
         {
           url: "https://twitter.com",
@@ -65,9 +66,10 @@ export default ({
       ],
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Sr. Designer",
-      name: "Charlotte Hale",
+      imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+      position: "Psicanálise",
+      publico: "Adultos e idosos",
+      name: "Túlio Vasconcelos",
       links: [
         {
           url: "https://twitter.com",
@@ -82,11 +84,11 @@ export default ({
           icon: GithubIcon,
         },
       ],
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Jr. Designer",
-      name: "Silvester Wize",
+    }, {
+      imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+      position: "Psicanálise",
+      publico: "Adultos e idosos",
+      name: "Túlio Vasconcelos",
       links: [
         {
           url: "https://twitter.com",
@@ -101,11 +103,11 @@ export default ({
           icon: GithubIcon,
         },
       ],
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
-      position: "Lead Developer",
-      name: "Himali Turn",
+    }, {
+      imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+      position: "Psicanálise",
+      publico: "Adultos e idosos",
+      name: "Túlio Vasconcelos",
       links: [
         {
           url: "https://twitter.com",
@@ -120,11 +122,11 @@ export default ({
           icon: GithubIcon,
         },
       ],
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
-      position: "Sr. Developer",
-      name: "Troye Sivan",
+    }, {
+      imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+      position: "Psicanálise",
+      publico: "Adultos e idosos",
+      name: "Túlio Vasconcelos",
       links: [
         {
           url: "https://twitter.com",
@@ -139,11 +141,11 @@ export default ({
           icon: GithubIcon,
         },
       ],
-    },
-    {
-      imageSrc: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=3.45&w=512&h=512&q=80",
-      position: "Quality Assurance",
-      name: "Holo Wo",
+    }, {
+      imageSrc: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&fit=facearea&facepad=2.95&w=512&h=512&q=80",
+      position: "Psicanálise",
+      publico: "Adultos e idosos",
+      name: "Túlio Vasconcelos",
       links: [
         {
           url: "https://twitter.com",
@@ -161,27 +163,23 @@ export default ({
     },
   ]
 }) => {
+  const buttonRoundedCss = buttonRounded && tw`rounded-full`;
+
   return (
     <Container>
       <ContentWithPaddingXl>
-        <HeadingContainer>
-          {subheading && <Subheading>{subheading}</Subheading>}
-          {heading && <Heading>{heading}</Heading> }
-          {description && <Description>{description}</Description> }
-        </HeadingContainer>
         <Cards>
           {cards.map((card, index) => (
             <Card key={index}>
               <CardImage imageSrc={card.imageSrc} />
               <CardContent>
                 <span className="position">{card.position}</span>
+                <span className="publico">{card.publico}</span>
                 <span className="name">{card.name}</span>
                 <CardLinks>
-                  {card.links.map((link, linkIndex) => (
-                    <a key={linkIndex} className="link" href={link.url}>
-                      <link.icon className="icon" />
-                    </a>
-                  ))}
+                  <PrimaryButton as="a" href={primaryButtonUrl} css={buttonRoundedCss}>
+                    {primaryButtonText}
+                  </PrimaryButton>
                 </CardLinks>
               </CardContent>
             </Card>
